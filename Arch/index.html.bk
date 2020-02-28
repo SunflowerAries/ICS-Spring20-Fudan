@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width initial-scale=1'>
+  <title>Arch Course Description</title>
+  <link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext'
+    rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body class='typora-export'>
+  
+  <div id='write' class='is-node'>
+      <div style="width:100px; position:absolute; left:-20px">
+          <img src='fudan.svg'/>
+      </div>
+        <div style="width:100px; position:absolute; right:-20px;">
+          <img src='logo-rev.png'/>
+      </div>
+    <h2><a name='header-n12' class='md-header-anchor '></a>
+      <center>ICS (Arch)</center>
+    </h2>
+    <h3><a name='header-n94' class='md-header-anchor '></a>
+      <center>Fudan University / 2020 Spring</center>
+    </h3>
+
+      <center><a href='https://sunfloweraries.github.io/ICS-Spring20-Fudan/Arch/'>[homepage]</a> <a href='https://github.com/SunflowerAries/ICS-Spring20-Fudan/tree/master/Arch'>[coursework]</a></center>
+    <h4><a name='header-n90' class='md-header-anchor '></a>Logistics</h4>
+    <ul>
+      <li>Instructor: Chen Chen (<a href='http://www.cs.fudan.edu.cn/?page_id=2918'>@陈辰</a>)</li>
+      <li>Teaching Assistants: Xiang Luo (<a href='https://github.com/SunflowerAries'>@SunflowerAries</a>), Yijun Ma (<a href='https://github.com/jasha64'>@jasha64</a>), Haibin Zhang (<a href='https://github.com/gkzhb'>@gkzhb</a>)</li>
+      <li>Grading: 4 assignments with a total 100% weight</li>
+    </ul>
+    <h4><a name='header-n85' class='md-header-anchor '></a>Syllabus</h4>
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Course</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mar  2</td>
+            <td>
+              Course Introduction <br>
+              MIPS Single-Cycle Processor Implementation <br>
+              <a href="http://vda.univie.ac.at/Teaching/ML/15s/LectureNotes/01_basics.pdf">[slides]</a>
+            </td>
+            <td><a href=''><p style="color:blue">Assignment 1 Released</p></a></td>
+          </tr>
+          <tr>
+            <td>Mar  9</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Mar 16</td>
+            <td>MIPS Pipeline Processor Implementation
+              <a href="http://vda.univie.ac.at/Teaching/ML/15s/LectureNotes/02_non-parametric_methods.pdf">[slides]</a></td>
+            <td><a href='assignment-2/index.html'><p style="color:blue">Assignment 2 Released</p></a></td>
+          </tr>
+          <tr>
+            <td>Mar 23</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Mar 30</td>
+            <td>&nbsp;</td>
+            <td><p style="color:red">Assignment 1 Due</p></td>
+          </tr>
+          <tr>
+            <td>Apr  6</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Apr 13</td>
+            <td></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Apr 20</td>
+            <td>Cache</td>
+            <td><p style="color:red">Assignment 2 Due</p><a href='assignment-3/index.html'><p style="color:blue">Assignment 3 Released</p></a></td>
+          </tr>
+          <tr>
+            <td>Apr 27</td>
+            <td>&nbsp;</td>
+            <td><p style="color:blue"> Submit member list and project plan for Assignment-4</p></td>
+          </tr>
+          <tr>
+            <td>May  4</td>
+            <td></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>May 11</td>
+            <td></td>
+            <td><p style="color:red">Assignment 3 Due</p><a href='assignment-4/index.html'><p style="color:blue">Assignment 4 Released</p></a></td>
+          </tr>
+          <tr>
+            <td>May 18</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>May 25</td>
+            <td>&nbsp;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Jun  1</td>
+            <td>&nbsp;</td>
+            <td><p style="color:red">Assignment 4 Due</p></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+    <p>&nbsp;</p>
+  </div>
+</body>
+
+</html>

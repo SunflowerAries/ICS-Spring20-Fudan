@@ -1,8 +1,8 @@
-## ICS (Architecture)
+## <center>ICS (Architecture)</center>
 
-### Fudan University / 2020 Spring
+### <center>Fudan University / 2020 Spring</center>
 
-Assignment 1
+<center>Assignment 1</center>
 
 Note: This is the first assignment for this course, you should read the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/Arch/README.md) first, it will makes up 20% of the final score.
 
@@ -12,10 +12,10 @@ This assignment will **due on Mar 30** before the course start (missing deadline
 
 In this assignment, you are going to implement Single-Cycle MIPS CPU according to slides and textbook. Your CPU need support instructions including: add，sub，and，or，slt，addi，andi，ori，slti，sw，lw，j，nop，beq，bne, jal, jr, sra, sll, srl.
 
-You have to follow our variable naming rules and framework as shown in `top.v`, which mainly refer to our textbook, since our graders are based on them.
+You have to follow our variable naming rules and framework as shown in `cpu_tb.v`, which mainly refer to our textbook, since our graders are based on them.
 
 ```verilog
-module top(input clk, reset,
+module cpu_tb(input clk, reset,
            output [31:0] writedata, dataadr,
            output memwrite);
 /*
@@ -44,4 +44,4 @@ After finishing CPU, you must run simulation to check if your CPU works well usi
 
 - There's no need to include wave plots in your report, since you have passed all the benchtests.
 - You should list all the references you find useful during your implementation, especially for the pictures you include in your report (We recommend you draw pictures on your own).
-
+- You are encouraged to offer some interesting and useful benchtests in your report.

@@ -36,11 +36,21 @@ Take `assignment-1` as an example, its benchtests are all included in `assignmen
 |	|	└── factorial.txt
 ```
 
-You need to create a vivado project first, and suppose its name is `project_1`, then include the `benchtest/` directory  and `makefile` in `project_1/`,  and add `benchtest/cpu_tb.sv` as a simulation source file besides setting it as top. Please change the value of `PATH_PREFIX` (default is empty `""`) in the 1st line of `cpu_tb.sv` to the absolute path to this project, for example `/home/sunflower/Downloads/project_1/`.
+You need to create a vivado project first, and suppose its name is `project_1`, then include the `benchtest/` directory  and `makefile` in `project_1/`,  and add `benchtest/cpu_tb.sv` as a simulation source file without copying sources into project (and then set it as top). Please change the value of `PATH_PREFIX` in the 1st line of `cpu_tb.sv` to the absolute path to this project, for example `/home/sunflower/Downloads/project_1/`.
 
 Each directory (e.g. `factorial/`) represents a test, which includes 6 files, and you can look into \*.out which includes mips instructions and its corresponding machine code.
 
-If you want to run the simulation test in command line on linux, you can configure the `makefile`:
+If you successfully passed a test, you can get outputs like
+
+```shell
+[OK] factorial
+[OK] ...
+[Done]
+```
+
+Otherwise you may get outputs like `FAILURE: Testbench Failed to finish before ddl!` or `[Error] PC: 0x0000001e Cycle: 5 Expected: balabala, Got: labalaba`, when you encounters the second situation in GUI, CPU is now stopped, and you can look into the wave plot to find what's wrong.
+
+On linux, if you want to run the simulation test in command line, you can configure the `makefile`:
 
 * `VIVADO_PATH` is the absolute path to your vivado executable file, eg. `/usr/local/Xilinx/Vivado/20xx.x/bin/vivado`.
 * `PROJECT_DIR` default is `.`, you can leave it alone.

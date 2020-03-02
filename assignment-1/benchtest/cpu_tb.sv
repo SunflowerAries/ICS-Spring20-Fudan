@@ -154,7 +154,7 @@ begin
     grader("factorial");
     grader("bubble sort");
     grader("gcd");
-    grader("quick multiple");
+    grader("quick multiply");
 	$display("[Done]\n");
 	$finish;
 end

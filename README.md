@@ -1,7 +1,7 @@
 # MIPS-Spring20-Fudan
 
 Course Website for MIPS Spring 2020 at Fudan University
-[[course website]](https://sunfloweraries.github.io/ICS-Spring20-Fudan/Arch/)
+[[course website]](https://sunfloweraries.github.io/ICS-Spring20-Fudan/)
 
 ## Coursework Guidelines
 

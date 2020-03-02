@@ -32,10 +32,10 @@ dmem #(DSIZE) dmem(clk, memwrite, dataadr, writedata, readdata);
 endmodule
 ```
 
-After finishing CPU, you must run simulation to check if your CPU works well. This assignment's tests are all listed in `testbench/Single-Cycle`
+After finishing CPU, you must run simulation to check if your CPU works well. This assignment's tests are all listed in `assignment/benchtest`
 
 #### Report Requirements
 
 - There's no need to include simulation results (e.g. wave plots) in your report, since you have passed all the benchtests.
 - You should list all the references you find useful during your implementation, especially for the pictures you include in your report (We recommend you draw pictures on your own).
-- You are encouraged to offer some interesting and useful benchtests in your report (no more than 5% **bonus**).
+- You are encouraged to offer some interesting and useful benchtests (not included in ours) in your report (no more than 5% **bonus**).

@@ -25,12 +25,12 @@ Take `assignment-1` as an example, its benchtests are all included in `assignmen
 .
 ├── benchtest/
 |   ├── run_simulation.tcl
-|	├──	cpu_tb.sv
+│   ├── cpu_tb.sv
 │   ├── .... (other benchtests)
 │   └── factorial
 |	|	├── factorial.ans
 |	|	├── factorial.in
-|	|	├──	factorial.mem
+|	|	├── factorial.mem
 |	|	├── factorial.out
 |	|	├── factorial.run
 |	|	└── factorial.txt

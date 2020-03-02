@@ -32,6 +32,7 @@ task judge(
     input string out
 );
     string ans;
+    ans = "";
     $fscanf(frun, "%s\n", ans);
     if (ans != out)
         begin
@@ -49,6 +50,7 @@ task judge_memory(
         wait(finish == 1'b1);
         while(!$feof(fans))
             begin
+                tb_dmem_data = 32'h0000_0000;
                 $fscanf(fans, "%h", tb_dmem_data);
                 if (tb_dmem_data != dmem.RAM[tb_data_addr/4])
                     begin
@@ -58,6 +60,7 @@ task judge_memory(
                     end
                 tb_data_addr = tb_data_addr + 4;
             end
+        $display("successfully pass memory judge");
     end
 endtask
 
@@ -75,15 +78,17 @@ task runtime_checker(
             if (mem_write)
                 begin
                     $sformat(out, "[0x%x]=0x%x", cpu_data_addr, write_data);
+//                    $display("out: %0s", out);
                     judge(frun, cycle, out);
                 end
-        end    
+        end
+    $display("successfully pass runtime checker");
 endtask
 
 initial 
 begin
 	// ddl to finish simulation
-	#1000000 $display("FAILURE: Testbench Failed to finish before ddl!");
+	#10000000 $display("FAILURE: Testbench Failed to finish before ddl!");
 	error_count = error_count + 1;
 	$finish;
 end
@@ -98,6 +103,7 @@ task init(input string name);
             dmem_counter = 0;
                 while(!$feof(fdmem))
                     begin
+                        dmem.RAM[dmem_counter] = 32'h0000_0000;
                         $fscanf(fdmem, "%x", dmem.RAM[dmem_counter]);
                         dmem_counter = dmem_counter + 1;
                     end
@@ -107,6 +113,7 @@ task init(input string name);
     $display("========== In init ==========");
     while(!$feof(fimem))
         begin
+            imem.RAM[imem_counter] = 32'h0000_0000;
             $fscanf(fimem, "%x", imem.RAM[imem_counter]);
             imem_counter = imem_counter + 1;
         end
@@ -135,7 +142,7 @@ task grader(input string name);
     if (error_count != 0)
         $display("Find %d error(s)", error_count);
     else
-        $display("Correct");
+        $display("[OK] %0s\n", name);
 endtask
 
 // start test
@@ -143,6 +150,9 @@ initial
 begin
     clk = 1'b0;
     grader("factorial");
+    grader("bubble sort");
+    grader("gcd");
+    grader("quick multiple");
 	$display("[Done]\n");
 	$finish;
 end

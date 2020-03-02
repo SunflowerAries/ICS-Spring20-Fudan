@@ -12,7 +12,7 @@ reg [31:0] tb_data_addr, tb_dmem_data, pc_finished;
 parameter ISIZE = 32, DSIZE = 32;
 string summary;
 // test variables
-integer fans, frun, fmem, error_count, imem_counter;
+integer fans, frun, fimem, fdmem, error_count, imem_counter, dmem_counter;
 
 // module instances
 mips mips(cpu_clk, reset, pc, instr, cpu_mem_write, cpu_data_addr, write_data, read_data);
@@ -91,16 +91,27 @@ end
 task init(input string name);
     imem.RAM = '{ default: '0 };
     dmem.RAM = '{ default: '0 };
-    fmem = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".mem"}, "r");
+    fimem = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".mem"}, "r");
+    fdmem = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".data"}, "r");
+    if (fdmem != 0) 
+        begin
+            dmem_counter = 0;
+                while(!$feof(fdmem))
+                    begin
+                        $fscanf(fdmem, "%x", dmem.RAM[dmem_counter]);
+                        dmem_counter = dmem_counter + 1;
+                    end
+            $fclose(fdmem)
+        end
     imem_counter = 0;
     $display("========== In init ==========");
-    while(!$feof(fmem))
+    while(!$feof(fimem))
         begin
-            $fscanf(fmem, "%x", imem.RAM[imem_counter]);
+            $fscanf(fimem, "%x", imem.RAM[imem_counter]);
             imem_counter = imem_counter + 1;
         end
     $display("%d instructions in total", imem_counter);
-    $fclose(fmem);
+    $fclose(fimem);
 endtask
 
 task grader(input string name);

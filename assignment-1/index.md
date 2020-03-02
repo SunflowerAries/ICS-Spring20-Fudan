@@ -4,9 +4,9 @@
 
 <center>Assignment 1</center>
 
-Note: This is the first assignment for this course, you should read the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/Arch/README.md) first. This assignment will make up 20% of the final score.
+Note: This is the first assignment for this course, you should read the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/README.md) first. This assignment will make up 20% of the final score.
 
-This assignment will **due on Apr 6** before the course start, and you must pass all the tests before submitting your work, for detailed information about checker configuration, also refer to the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/Arch/README.md).
+This assignment will **due on Apr 6** before the course start, and you must pass all the tests before submitting your work, for detailed information about checker configuration, also refer to the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/README.md).
 
 #### Description
 

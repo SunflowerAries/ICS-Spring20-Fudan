@@ -10,7 +10,7 @@ This assignment will **due on Apr 6** before the course start, and you must pass
 
 #### Description
 
-In this assignment, you are going to implement Single-Cycle MIPS CPU according to slides and textbook. Your CPU need support instructions including: add，sub，and，or，slt，addi，andi，ori，slti，sw，lw，j，nop，beq，bne, jal, jr, sra, sll, srl.
+In this assignment, you are going to implement Single-Cycle MIPS CPU according to slides and textbook. Your CPU need support instructions including: add，sub，and，or，slt，addi，andi，ori，slti，sw，lw，j，nop，beq，bne, jal, jr, sra, sll, srl. For unfamiliar instructions, please refer to the textbook *Digital Design and Computer Architecture*'s Appendix B.
 
 You have to follow our variable naming rules and framework as shown in `cpu_tb.sv`, which mainly refer to our textbook, since our graders are based on them.
 

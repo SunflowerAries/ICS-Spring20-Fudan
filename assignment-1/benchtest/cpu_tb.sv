@@ -101,7 +101,7 @@ task init(input string name);
                         $fscanf(fdmem, "%x", dmem.RAM[dmem_counter]);
                         dmem_counter = dmem_counter + 1;
                     end
-            $fclose(fdmem)
+            $fclose(fdmem);
         end
     imem_counter = 0;
     $display("========== In init ==========");

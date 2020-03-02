@@ -70,3 +70,7 @@ For each assignment, the score is made up of
 ## Hint
 
 This course website mainly refers to [PRML-Spring19-Fudan](https://github.com/ichn-hu/PRML-Spring19-Fudan).
+
+For textbook, you can refer to
+
+- *Digital Design and Computer Architecture* (2nd)

@@ -3,7 +3,6 @@
 ### <center>Fudan University / 2020 Spring</center>
 
 <center>Assignment 1</center>
-
 Note: This is the first assignment for this course, you should read the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/README.md) first. This assignment will make up 20% of the final score.
 
 This assignment will **due on Apr 6** before the course start, and you must pass all the tests before submitting your work, for detailed information about checker configuration, also refer to the [guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/README.md#checker-configuration).
@@ -19,13 +18,10 @@ module cpu_tb();
 /*
  * grader
  */
-    
-parameter ISIZE = 64, DSIZE = 64;
-// size of instruction memory and data memory
 
 mips mips(.clk(cpu_clk), .reset(reset), .pc(pc), .instr(instr), .memwrite(cpu_mem_write), .aluout(cpu_data_addr), .writedata(write_data), .readdata(read_data));
-imem #(ISIZE) imem(.a(pc[7:2]), .rd(instr));
-dmem #(DSIZE) dmem(.clk(clk), .memwrite(mem_write), .a(cpu_data_addr), .writedata(write_data), .rd(read_data));
+imem imem(.a(pc[7:2]), .rd(instr));
+dmem dmem(.clk(clk), .we(mem_write), .a(cpu_data_addr), .wd(write_data), .rd(read_data));
 endmodule
 ```
 

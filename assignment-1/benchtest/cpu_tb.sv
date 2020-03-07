@@ -124,7 +124,6 @@ endtask
 
 task grader(input string name);
     $display("========== Test: %0s ==========", name);
-    init(name);
     begin
         reset = 1'b1;
         tb_dmem_data = 32'h0000_0000;
@@ -132,6 +131,7 @@ task grader(input string name);
         pc_finished = 32'hffff_ffff;
         #50 reset = 1'b0;   
     end
+    init(name);
     fans = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".ans"}, "r");
     $fscanf(fans, "%h", pc_finished);
     frun = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".run"}, "r");
@@ -150,10 +150,12 @@ endtask
 initial
 begin
     clk = 1'b0;
+    grader("ad hoc");
     grader("factorial");
     grader("bubble sort");
     grader("gcd");
     grader("quick multiply");
+    grader("bisection");
 	$display("[Done]\n");
 	$finish;
 end

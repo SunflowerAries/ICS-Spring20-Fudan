@@ -1,0 +1,25 @@
+main:
+addi $v0, $0, 5
+addi $v1, $0, 12
+addi $a3, $v1, -9
+or $a0, $a3, $v0
+and $a1, $v1, $a0
+add $a1, $a1, $a0
+beq $a3, $a1, end
+slt $a0, $v1, $a0
+beq $0, $a0, around
+addi $a1, $0, 0
+around:
+slt $a0, $a3, $v0
+add $a3, $a0, $a1
+sub $a3, $a3, $v0
+sw $a3, 68($v1)
+lw $v0, 80($0)
+j end
+addi $v0, $0, 1
+end:
+sw $v0, 84($0)
+nop
+nop
+nop
+nop

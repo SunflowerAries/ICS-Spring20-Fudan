@@ -1,0 +1,21 @@
+addi $v0,$0,189
+addi $v1,$0,287
+add $a0, $0, $0
+main:
+sw $v0, 0($a0)
+sw $v1, 4($a0)
+addi $a0, $a0, 8
+beq $v0,$v1,end
+slt $at,$v0,$v1
+beq $at,$0,run
+add $at,$v0,$0
+add $v0,$v1,$0
+add $v1,$at,$0
+run:
+sub $v0,$v0,$v1 
+j main
+end:
+nop
+nop
+nop
+nop

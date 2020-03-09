@@ -1,0 +1,31 @@
+ 0x0 : addi $sp, $0, 128    | 201d0080
+ 0x4 : addi $a0, $0, 5      | 20040005
+ 0x8 : addi $a1, $0, 0      | 20050000
+ 0xc : jal factorial        | 0c00000a
+0x10 : sw $v0, 0($a1)       | aca20000
+0x14 : sll $v0, $v0, 1      | 00021040
+0x18 : nop                  | 00000000
+0x1c : nop                  | 00000000
+0x20 : nop                  | 00000000
+0x24 : nop                  | 00000000
+0x28 :                      | 
+0x28 : factorial:           | 
+0x28 : addi $sp, $sp, -8    | 23bdfff8
+0x2c : sw $a0, 4($sp)       | afa40004
+0x30 : sw $ra, 0($sp)       | afbf0000
+0x34 : addi $t0, $0, 2      | 20080002
+0x38 : slt $t0, $a0, $t0    | 0088402a
+0x3c : beq $t0, $0 ,else    | 10080003
+0x40 : addi $v0, $0, 1      | 20020001
+0x44 : addi $sp, $sp, 8     | 23bd0008
+0x48 : jr $ra               | 03e00008
+0x4c : else:                | 
+0x4c : addi $a0, $a0, -1    | 2084ffff
+0x50 : jal factorial        | 0c00000a
+0x54 : lw $ra, 0($sp)       | 8fbf0000
+0x58 : lw $a0, 4($sp)       | 8fa40004
+0x5c : addi $sp, $sp, 8     | 23bd0008
+0x60 : sw $v0, 0($a1)       | aca20000
+0x64 : add $v0, $a0, $v0    | 00821020
+0x68 : addi $a1, $a1, 4     | 20a50004
+0x6c : jr $ra               | 03e00008

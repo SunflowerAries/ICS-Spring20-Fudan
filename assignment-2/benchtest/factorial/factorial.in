@@ -1,0 +1,31 @@
+addi $sp, $0, 128
+addi $a0, $0, 5
+addi $a1, $0, 0
+jal factorial
+sw $v0, 0($a1)
+sll $v0, $v0, 1 
+nop
+nop
+nop
+nop
+
+factorial:
+	addi $sp, $sp, -8
+	sw $a0, 4($sp)
+	sw $ra, 0($sp)
+	addi $t0, $0, 2
+	slt $t0, $a0, $t0
+	beq $t0, $0 ,else
+	addi $v0, $0, 1
+	addi $sp, $sp, 8
+	jr $ra
+else:
+	addi $a0, $a0, -1
+	jal factorial
+	lw $ra, 0($sp)
+	lw $a0, 4($sp)
+	addi $sp, $sp, 8
+	sw $v0, 0($a1)
+	add $v0, $a0, $v0
+	addi $a1, $a1, 4
+	jr $ra

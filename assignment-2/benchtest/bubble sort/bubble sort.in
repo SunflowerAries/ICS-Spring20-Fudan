@@ -1,0 +1,24 @@
+add $t0, $0, $0
+addi $t3, $0, 128
+For:
+add $sp, $0, $t0
+lw $t4, 0($sp)
+add $t5, $0, $sp
+for:
+lw $t6, 0($sp)
+slt $t7, $t6, $t4
+bne $t7, $0, ret
+add $t4, $0, $t6
+add $t5, $sp, $0
+ret:
+addi $sp, $sp, 4
+bne $sp, $t3, for
+addi $t3, $t3, -4
+lw $t8, 0($t3)
+sw $t4, 0($t3)
+sw $t8, 0($t5)
+bne $0, $t3, For
+nop
+nop
+nop
+nop

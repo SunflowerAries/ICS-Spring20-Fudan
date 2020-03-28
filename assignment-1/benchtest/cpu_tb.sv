@@ -12,6 +12,7 @@ reg [31:0] tb_data_addr, tb_dmem_data, pc_finished;
 string summary;
 // test variables
 integer fans, frun, fimem, fdmem, error_count, imem_counter, dmem_counter;
+integer cycle = 0, instr_count = 0;
 
 // module instances
 mips mips(.clk(cpu_clk), .reset(reset), .pc(pc), .instr(instr), .memwrite(cpu_mem_write), .aluout(cpu_data_addr), .writedata(write_data), .readdata(read_data));
@@ -67,14 +68,12 @@ endtask
 task runtime_checker(
     input integer frun
 );
-    integer cycle;
     string out;
-    cycle = 0;
     $display("========== In runtime checker ==========");
     while(!$feof(frun))
         begin@(negedge clk)
             cycle = cycle + 1;
-            // $readmemh({`PATH_PREFIX, "data", name, ".bat"}, imem.RAM);
+
             if (mem_write)
                 begin
                     $sformat(out, "[0x%x]=0x%x", cpu_data_addr, write_data);

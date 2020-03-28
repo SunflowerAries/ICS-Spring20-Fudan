@@ -13,6 +13,15 @@ $$
 
 Pipelining is a technique where multiple instructions are overlapped during execution.  It reduces CPI so that total CPU time consumption is dramatically reduced compared to non-pipelining. All modern high-performance microprocessors are pipelined.
 
+From now on, we'll measure CPI of your CPU, and you may alter 76th-79th lines of `cpu_tb.sv` to fit into yours.
+
+```systemverilog
+cycle = cycle + 1;
+
+if (~mips.dp.flushD & ~mips.dp.haz.stallD)
+	instr_count = instr_count + 1;
+```
+
 However, because multiple instructions are handled concurrently in a pipelined system, there exists possibility of *hazards*, which need special solution.
 
 #### Description

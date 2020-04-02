@@ -17,8 +17,8 @@ integer cycle = 0, instr_count = 0;
 
 // module instances
 mips mips(.clk(cpu_clk), .reset(reset), .pc(pc), .instr(instr), .memwrite(cpu_mem_write), .aluout(cpu_data_addr), .writedata(write_data), .readdata(read_data));
-imem #(ISIZE) imem(.a(pc[7:2]), .rd(instr));
-dmem #(DSIZE) dmem(.clk(clk), .memwrite(mem_write), .a(cpu_data_addr), .writedata(write_data), .rd(read_data));
+imem imem(.a(pc[7:2]), .rd(instr));
+dmem dmem(.clk(clk), .we(mem_write), .a(cpu_data_addr), .wd(write_data), .rd(read_data));
 
 // clock and reset
 always #20 clk = ~clk;
@@ -55,7 +55,7 @@ task judge_memory(
                 $fscanf(fans, "%h", tb_dmem_data);
                 if (tb_dmem_data != dmem.RAM[tb_data_addr/4])
                     begin
-                        $display("FAILUER: dmem 0x%0h expect 0x%0h but get 0x%0h",
+                        $display("FAILURE: dmem 0x%0h expect 0x%0h but get 0x%0h",
                             tb_data_addr, tb_dmem_data, dmem.RAM[tb_data_addr/4]);
                         error_count = error_count + 1;
                     end

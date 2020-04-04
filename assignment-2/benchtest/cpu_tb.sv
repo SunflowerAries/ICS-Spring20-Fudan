@@ -1,4 +1,4 @@
-`define PATH_PREFIX "/home/sunflower/Downloads/Pipeline/"
+`define PATH_PREFIX "../../../../"
 `define NAME "benchtest/"
 
 module cpu_tb();

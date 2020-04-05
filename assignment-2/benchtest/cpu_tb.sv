@@ -15,6 +15,10 @@ string summary;
 integer fans, frun, fimem, fdmem, error_count, imem_counter, dmem_counter;
 integer cycle = 0, instr_count = 0;
 
+`ifdef checking
+    integer error_test = 0;
+`endif
+
 // module instances
 mips mips(.clk(cpu_clk), .reset(reset), .pc(pc), .instr(instr), .memwrite(cpu_mem_write), .aluout(cpu_data_addr), .writedata(write_data), .readdata(read_data));
 imem imem(.a(pc[7:2]), .rd(instr));
@@ -37,8 +41,14 @@ task judge(
     $fscanf(frun, "%s\n", ans);
     if (ans != out)
         begin
-            $display("[Error] PC: 0x%x Cycle: %d\tExpected: %0s, Got: %0s", pc, cycle, ans, out);
-		    $stop;
+            `ifdef checking
+		      error_count = error_count + 1;
+		    `else
+		      begin
+		          $display("[Error] PC: 0x%x Cycle: %0d\tExpected: %0s, Got: %0s", pc, cycle, ans, out);
+		          $stop;
+              end
+		    `endif
         end
 endtask
 
@@ -61,7 +71,9 @@ task judge_memory(
                     end
                 tb_data_addr = tb_data_addr + 4;
             end
-        $display("successfully pass memory judge");
+        `ifndef checking
+            $display("successfully pass memory judge");
+        `endif
     end
 endtask
 
@@ -85,7 +97,9 @@ task runtime_checker(
                     judge(frun, cycle, out);
                 end
         end
-    $display("successfully pass runtime checker");
+    `ifndef checking
+        $display("successfully pass runtime checker");
+    `endif
 endtask
 
 initial 
@@ -121,7 +135,7 @@ task init(input string name);
             $fscanf(fimem, "%x", imem.RAM[imem_counter]);
             imem_counter = imem_counter + 1;
         end
-    $display("%d instructions in total", imem_counter);
+    $display("%0d instructions in total", imem_counter);
     $fclose(fimem);
 endtask
 
@@ -138,13 +152,19 @@ task grader(input string name);
     fans = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".ans"}, "r");
     $fscanf(fans, "%h", pc_finished);
     frun = $fopen({ `PATH_PREFIX, `NAME, name, "/", name, ".run"}, "r");
-    runtime_checker(frun);
     error_count = 0;
+    runtime_checker(frun);
     $fclose(frun);
 	judge_memory(fans);
     $fclose(fans);
     if (error_count != 0)
-        $display("Find %d error(s)", error_count);
+        begin
+            $display("Find %0d error(s)", error_count);
+            `ifdef checking
+                error_test = error_test + 1;
+                $display("[ERROR] %0s\n", name);
+            `endif
+        end
     else
         $display("[OK] %0s\n", name);
 endtask
@@ -160,8 +180,11 @@ begin
     grader("quick multiply");
     grader("bisection");
 	$display("[Done]\n");
-    $display("CPI = %f\n", $bitstoreal(cycle) / $bitstoreal(instr_count));
-	$finish;
+    $display("CPI = %0f\n", $bitstoreal(cycle) / $bitstoreal(instr_count));
+	`ifdef checking
+	   $display("Error test: %0d\n", error_test);
+	`endif
+    $finish;
 end
 
 endmodule

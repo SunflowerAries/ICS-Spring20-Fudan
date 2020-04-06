@@ -36,9 +36,9 @@ Take `assignment-1` as an example, its benchtests are all included in `assignmen
 |	|	└── factorial.txt
 ```
 
-You need to create a vivado project first, and suppose its name is `project_1`, then include the `benchtest/` directory  and `makefile` in `project_1/`,  and add `benchtest/cpu_tb.sv` as a simulation source file without copying sources into project (and then set it as top). Please change the value of `PATH_PREFIX` in the 1st line of `cpu_tb.sv` to the absolute path to this project, for example `/home/sunflower/Downloads/project_1/`.
+You need to create a vivado project first, and suppose its name is `project_1`, then include the `benchtest/` directory  and `makefile` in `project_1/`,  and add `benchtest/cpu_tb.sv` as a simulation source file without copying sources into project (and then set it as top). ~~Please change the value of `PATH_PREFIX` in the 1st line of `cpu_tb.sv` to the absolute path to this project, for example `/home/sunflower/Downloads/project_1/`~~. To grade your work automatically, we've made some changes to your cpu_tb.sv and began to take relative path, so there's no need to change the value of `PATH_PREFIX` in the 1st line of `cpu_tb.sv` any more.
 
-Each directory (e.g. `factorial/`) represents a test, which includes 6 files, and you can look into \*.out which includes mips instructions and its corresponding machine code.
+Each directory (e.g. `factorial/`) represents a test, which includes 6 files, and you can look into \*.out which includes mips instructions and its corresponding machine code. **If you want to commit some tests to us, you need comment out additional tests before committing**.
 
 If you successfully passed a test, you can get outputs like
 
@@ -56,6 +56,7 @@ On linux, if you want to run the simulation test in command line, you can config
 * `PROJECT_DIR` default is `.`, you can leave it alone.
 * `PROJECT_NAME` is the name of your vivado project which should correspond to `*.xpr`.
 * `SIM` is the name of the simulation set you want to run (default is sim_1).
+* **You need to restore the configuration before committing, since we'll just use `makefile` to run vivado automatically in your directory**.
 
 After proper configuration, you can use `make test` or simple `make` to run the simulation test.
 

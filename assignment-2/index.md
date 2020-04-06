@@ -3,7 +3,7 @@
 ### <center>Fudan University / 2020 Spring</center>
 
 <center>Assignment 2</center>
-This assignment will make up 20% of the final score. It will **due on Apr 27**, and you must pass all the tests before submitting your work. If you've forgotten how to configure the checker, please refer to [checker guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/README.md#checker-configuration)
+This assignment will make up 20% of the final score. It will **due on Apr 27**, and you must pass all the tests before submitting your work. Recently we've made some changes to grade your work automatically, please refer to [checker guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/README.md#checker-configuration) for details.
 
 #### Background
 

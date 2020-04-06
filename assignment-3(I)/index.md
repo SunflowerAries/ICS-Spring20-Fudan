@@ -4,9 +4,11 @@
 
 <center>Assignment 3 Part I (Cache)</center>
 
-You are required to add Cache and Branch Predictor to your MIPS Pipeline Processor in this assignment. Assignment 3 is divided into two parts. The first part is about Cache, and the latter one is about Branch Predictor.
+You are required to add Cache and Branch Predictor to your MIPS Pipeline Processor in assignment 3. Due to its work and doc, assignment 3 is divided into two parts. The first part is about Cache, and the latter one is about Branch Predictor.
 
-In Part I, you should recall what you've learned from ICS about cache and follow this doc to implement both instruction cache and data cache.
+The first part will make up 25% of the final score. It will **due on May 11**, and you must pass all the tests (cpu_tb.sv is to be delayed) before submitting your work. And recently we've made some **changes** to checker, please refer to [checker guidelines](https://github.com/SunflowerAries/ICS-Spring20-Fudan/blob/master/README.md#checker-configuration) for details (If you've seen this in assignment-2, you can just ignore this).
+
+In Part I, you may recall what you've learned from ICS about cache and follow this doc to implement both instruction cache and data cache. Before work, you need import codes in `src/`.
 
 #### Description
 
@@ -113,7 +115,7 @@ endmodule
 
 You'd better review *6.4 Cache Memories* in CSAPP first and understand how `cache` `set` and `line` modules should be organized (*PS*: you'd better also create a module for Line Replacement Strategy). You can refer to module declarations listed below. 
 
-**Remember**: declarations below are for reference only. You may need to modify them according to your way to implement cache.
+**Hint**: declarations below are for reference only. You may modify them (e.g. exposed ports) according to your way to implement cache (and we think there should be **no changes to cache.v** because we think all the ports are musts and we should set up these ports to ease our testing).
 
 #### Reference Implementation
 

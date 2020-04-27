@@ -1,0 +1,103 @@
+# 在编译原理的语法分析中，很多文法都是递归形式给出的。
+# 假设有如下文法：
+# G[F]:
+# F → fG | a
+# G → gF
+# 判断字符串 a 是否满足的程序如下：
+# 
+# int F(int pos)
+# {
+#     if(a[pos] == 'a')  return pos+1;
+#     if(a[pos] == 'f') return G(pos+1);
+#     return -1;
+# }
+# 
+# int G(int pos)
+# {
+#     if(a[pos] == 'g')  return F(pos+1);
+#     return -1;
+# }
+# b = F(0);
+
+# 将字符串"fgfga"置入从0x00000000($s0)开始的空间
+# 因为不支持sb指令，所以用sw代替
+addi $s0, $0, 0
+addi $t0, $0, 102
+sw $t0, 0($s0)
+addi $t0, $0, 103
+sw $t0, 4($s0)
+addi $t0, $0, 102
+sw $t0, 8($s0)
+addi $t0, $0, 103
+sw $t0, 12($s0)
+addi $t0, $0, 97
+sw $t0, 16($s0)
+# 初始化栈指针
+addi $sp, $0, 128
+
+# 调用F(0)。调用返回后，将返回值($v0)存入变量b($s1)。
+addi $a0, $0, 0
+jal F
+addi $s1, $v0, 0
+nop
+nop
+nop
+nop
+
+F:
+# 申请栈帧空间，存储保留寄存器
+addi $sp, $sp, -8
+sw $a0, 4($sp)
+sw $ra, 0($sp)
+
+# 读取a[pos]
+sll $t9, $a0, 2
+add $t9, $s0, $t9
+lw $t0, 0($t9)
+
+# 第一个if语句
+addi $t1, $0, 97
+bne $t0, $t1, F1
+# 设定返回值
+addi $v0, $a0, 1
+j F_ret
+
+F1:
+# 第二个if语句
+addi $t1, $0, 102
+bne $t0, $t1, F2
+addi $a0, $a0, 1
+jal G
+j F_ret
+
+F2:
+addi $v0, $0, -1
+F_ret:
+# 释放栈帧空间，恢复保留寄存器
+lw $ra, 0($sp)
+lw $a0, 4($sp)
+addi $sp, $sp, 8
+jr $ra
+
+G:
+addi $sp, $sp, -8
+sw $a0, 4($sp)
+sw $ra, 0($sp)
+
+sll $t9, $a0, 2
+add $t9, $s0, $t9
+lw $t0, 0($t9)
+
+addi $t1, $0, 103
+bne $t0, $t1, G1
+addi $a0, $a0, 1
+jal F
+j G_ret
+
+G1:
+addi $v0, $0, -1
+G_ret:
+lw $ra, 0($sp)
+lw $a0, 4($sp)
+addi $sp, $sp, 8
+jr $ra

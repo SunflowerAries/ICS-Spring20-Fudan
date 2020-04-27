@@ -1,0 +1,12 @@
+ 0x0 : addi $a0, $0, -1     | 2004ffff
+ 0x4 : addi $a1, $0, 0      | 20050000
+ 0x8 : addi $sp, $0, 32     | 201d0020
+ 0xc : andi $a0, $a0, -1    | 3084ffff
+0x10 : ori $a1, $a1, -1     | 34a5ffff
+0x14 : sw $a0, 0($sp)       | afa40000
+0x18 : sw $a1, 8($sp)       | afa50008
+0x1c : nop                  | 00000000
+0x20 : nop                  | 00000000
+0x24 : nop                  | 00000000
+0x28 : nop                  | 00000000
+0x2c : nop                  | 

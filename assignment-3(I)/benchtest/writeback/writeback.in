@@ -1,0 +1,9 @@
+add $a0, $0, $0
+addi $a2, $0, 200
+start:
+lw $a1, 0($a0)
+addi $a0, $a0, 8
+bne $a0, $a2, start
+nop
+nop
+nop

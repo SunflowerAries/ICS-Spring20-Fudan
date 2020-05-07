@@ -1,0 +1,14 @@
+addi $v0, $0, 5
+addi $v1, $0, 12
+addi $a3, $v1, -9
+or $a0, $a3, $v0
+and $a1, $v1, $a0
+add $a1, $a1, $a0
+bne $a1, $0, around    # should be taken
+add $a1, $a1, $a0
+around:
+sw $a1, 4($0)
+nop
+nop
+nop
+nop

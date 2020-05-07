@@ -1,0 +1,18 @@
+addi $t8, $0, 1905
+addi $t9, $0, -2020
+slti $s1, $t8, -2020
+sw $s1, 0($0)
+slti $s1, $t9, 2020
+sw $s1, 4($0)
+andi $s1, $t9, -1
+sw $s1, 8($0)
+andi $s1, $t9, 32767
+sw $s1, 12($0)
+ori $s1, $t8, -8
+sw $s1, 16($0)
+ori $s1, $t9, 2020
+sw $s1, 20($0)
+nop
+nop
+nop
+nop

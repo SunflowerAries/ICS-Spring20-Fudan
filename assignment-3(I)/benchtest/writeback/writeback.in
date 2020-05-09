@@ -1,5 +1,5 @@
 add $a0, $0, $0
-addi $a2, $0, 200
+addi $a2, $0, 512
 start:
 lw $a1, 0($a0)
 addi $a0, $a0, 8

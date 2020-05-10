@@ -187,6 +187,7 @@ task grader(input string name);
     $display("========== Test: %0s ==========", name);
     begin
         reset = 1'b1;
+		ireset = 1'b0;
         tb_dmem_data = 32'h0000_0000;
         tb_data_addr = 32'h0000_0000;
         pc_finished = 32'hffff_ffff;

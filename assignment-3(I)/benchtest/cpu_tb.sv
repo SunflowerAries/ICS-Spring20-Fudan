@@ -118,7 +118,7 @@ task runtime_checker(
 
             if (cpu_mem_write)
                 begin
-                    $sformat(out, "[0x%x]=0x%x", m_data_addr, cpu_wd);
+                    $sformat(out, "[0x%x]=0x%x", cpu_data_addr, cpu_wd);
 //                    $display("out: %0s", out);
                     judge(frun, cycle, out);
                 end

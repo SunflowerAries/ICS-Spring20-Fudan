@@ -1,0 +1,19 @@
+addi $t0, $0, 17
+addi $t1, $0, 32
+addi $t3, $0, 16
+addi $s0, $0, 0
+For:
+addi $t2, $0, 0
+for:
+add $s0, $s0, $t0
+andi $t4, $s0, 127
+sll $t4, $t4, 2
+sw $t0, 0($t4)
+addi $t2, $t2, 1
+bne $t2, $t3, for
+addi $t0, $t0, 1
+bne $t0, $t1, For
+nop
+nop
+nop
+nop

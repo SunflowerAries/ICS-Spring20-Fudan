@@ -229,6 +229,7 @@ begin
     grader("testjr");
     grader("en & clear");
     grader("i-type");
+    grader("random write");
 	$display("[Done]\n");
     $display("CPI = %0f\n", $bitstoreal(cycle) / $bitstoreal(instr_count));
 	`ifdef checking
